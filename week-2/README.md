@@ -1,12 +1,32 @@
-# React + Vite
+# To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-Currently, two official plugins are available:
+A feature-rich To-Do List application built with React and Tailwind CSS, featuring task management, filtering, sorting, and celebration effects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features ✨
 
-## Expanding the ESLint configuration
+- ✅ Add, edit, and delete tasks
+- ✔️ Mark tasks as complete/incomplete
+- 🎉 Confetti celebration when completing tasks
+- 🌙 Dark/Light mode toggle
+- 🔍 Filter tasks (All/Active/Completed)
+- 🔄 Sort tasks (Newest/Oldest/A-Z/Z-A)
+- 💾 LocalStorage persistence
+- 📱 Fully responsive design
+- 🛠 Form validation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshots 🖼️
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Light Mode](screenshots/light-mode.png) | ![Dark Mode](screenshots/dark-mode.png) |
+
+## Installation ⚙️
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
