@@ -17,11 +17,6 @@ A feature-rich To-Do List application built with React and Tailwind CSS, featuri
 - 📱 Fully responsive design
 - 🛠 Form validation
 
-## Screenshots 🖼️
-
-| Light Mode | Dark Mode |
-|------------|-----------|
-| ![Light Mode](screenshots/light-mode.png) | ![Dark Mode](screenshots/dark-mode.png) |
 
 ## Installation ⚙️
 
