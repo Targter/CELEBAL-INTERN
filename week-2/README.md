@@ -24,20 +24,15 @@ Experience the application live:
 
 ## Screenshots 🖼️
 
-### Light Mode
-![Light Mode](https://github.com/Targter/CELEBAL-INTERN/blob/b42262598920717401add97149fcddc898f0e27f/week-2/public/Screenshot%202025-06-01%20182858.png)  
-*Clean interface with task management options*
-
-### Dark Mode
-![Dark Mode](https://i.imgur.com/9Xm8b2N.png)  
+![Dark Mode](https://github.com/Targter/CELEBAL-INTERN/blob/fb529929eff92d11933f45cc1ffad0ca7a0532b3/week-2/public/Screenshot%202025-06-01%20183147.png)  
 *Eyes-friendly dark theme with the same functionality*
 
 ### Mobile View
-![Mobile View](https://i.imgur.com/Va5Qk4z.png)  
+![Mobile View](https://github.com/Targter/CELEBAL-INTERN/blob/fb529929eff92d11933f45cc1ffad0ca7a0532b3/week-2/public/Screenshot%202025-06-01%20182914.png)  
 *Fully responsive design for all devices*
 
 ### Celebration Effect
-![Confetti Effect](https://i.imgur.com/zL9YjKX.gif)  
+![Confetti Effect](https://github.com/Targter/CELEBAL-INTERN/blob/fb529929eff92d11933f45cc1ffad0ca7a0532b3/week-2/public/Screenshot%202025-06-01%20182955.png)  
 *Confetti animation when completing tasks*
 
 ## Installation ⚙️
