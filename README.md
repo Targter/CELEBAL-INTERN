@@ -80,5 +80,14 @@ Currently in **3rd Year**
 
 ---
 
-## 📁 Repository Structure
+---
+
+## 📫 Want to Collaborate?
+
+I'm always open to new ideas, hackathons, and collaboration opportunities. Feel free to [reach out via LinkedIn](https://www.linkedin.com/in/abhay-bansal-123/) or drop a message through the issues tab!
+
+---
+
+⭐ **Star** this repo if you find it helpful!
+
 
