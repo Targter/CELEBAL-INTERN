@@ -25,7 +25,7 @@ Experience the application live:
 ## Screenshots 🖼️
 
 ### Light Mode
-![Light Mode](https://i.imgur.com/JK7w3Qj.png)  
+![Light Mode](https://github.com/Targter/CELEBAL-INTERN/blob/b42262598920717401add97149fcddc898f0e27f/week-2/public/Screenshot%202025-06-01%20182858.png)  
 *Clean interface with task management options*
 
 ### Dark Mode
