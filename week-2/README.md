@@ -17,6 +17,28 @@ A feature-rich To-Do List application built with React and Tailwind CSS, featuri
 - 📱 Fully responsive design
 - 🛠 Form validation
 
+## Live Demo 🚀
+
+Experience the application live:  
+🔗 [https://week2.abhaybansal.site/](https://week2.abhaybansal.site/)
+
+## Screenshots 🖼️
+
+### Light Mode
+![Light Mode](https://i.imgur.com/JK7w3Qj.png)  
+*Clean interface with task management options*
+
+### Dark Mode
+![Dark Mode](https://i.imgur.com/9Xm8b2N.png)  
+*Eyes-friendly dark theme with the same functionality*
+
+### Mobile View
+![Mobile View](https://i.imgur.com/Va5Qk4z.png)  
+*Fully responsive design for all devices*
+
+### Celebration Effect
+![Confetti Effect](https://i.imgur.com/zL9YjKX.gif)  
+*Confetti animation when completing tasks*
 
 ## Installation ⚙️
 
