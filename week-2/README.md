@@ -11,7 +11,6 @@ A feature-rich To-Do List application built with React and Tailwind CSS, featuri
 - ✅ Add, edit, and delete tasks
 - ✔️ Mark tasks as complete/incomplete
 - 🎉 Confetti celebration when completing tasks
-- 🌙 Dark/Light mode toggle
 - 🔍 Filter tasks (All/Active/Completed)
 - 🔄 Sort tasks (Newest/Oldest/A-Z/Z-A)
 - 💾 LocalStorage persistence
@@ -28,5 +27,5 @@ A feature-rich To-Do List application built with React and Tailwind CSS, featuri
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/Targter/CELEBAL-INTERN.git
+cd week-2
