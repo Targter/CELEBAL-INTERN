@@ -9,7 +9,7 @@ Welcome to my **Internship GitHub Repository**, where you’ll find a comprehens
 - 💼 [LinkedIn](https://www.linkedin.com/in/bansalabhay/)  
 - 💻 [GitHub](https://github.com/Targter)  
 - 🐦 [Twitter (X)](https://x.com/AbCheckk)  
-- 🌐 [Personal Website](https://abhaybansal.dev) 
+- 🌐 [Personal Website](https://abwork.netlify.app/)
 ---
 
 ## 🚀 Projects
