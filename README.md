@@ -6,32 +6,36 @@ Welcome to my **Internship GitHub Repository**, where you’ll find a comprehens
 
 ## 🔗 Connect with Me
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/abhay-bansal-123/)  
-- 💻 [GitHub](https://github.com/abhaybansaldev)  
-- 🐦 [Twitter (X)](https://twitter.com/abhaybansaldev)  
-- 🌐 [Personal Website](https://abhaybansal.dev) *(if you have one)*  
-- 📷 [Instagram](https://www.instagram.com/abhay.codes/) *(optional)*  
-
+- 💼 [LinkedIn](https://www.linkedin.com/in/bansalabhay/)  
+- 💻 [GitHub](https://github.com/Targter)  
+- 🐦 [Twitter (X)](https://x.com/AbCheckk)  
+- 🌐 [Personal Website](https://abhaybansal.dev) 
 ---
 
 ## 🚀 Projects
 
 Here are some of the top projects featured in this repository:
+### 🔹 [Blockchain-Powered Hackathon Management Platform](https://github.com/abhaybansaldev/hackathon-chain)
+A decentralized hackathon management system where:
+- Organizers can create events, generate team codes, design marking schemes, and manage rounds
+- Panelists can evaluate projects, score teams, and view real-time leaderboards
+- Projects are uploaded as `.zip` files and previewed via **WebContainers**
+- Built with **Next.js**, **Express**, **AWS S3**, and **Solidity** for event authenticity and traceability
 
-### 🔹 [ChatGPT Clone with Custom Data](https://github.com/abhaybansaldev/chatgpt-clone)
+### 🔹 [Prompt-to-Website Generator (Bolt Clone)](https://abboltweb.vercel.app/)
+Generate full-fledged websites from a simple text prompt using AI. Features include:
+- Instant React + Tailwind component generation from user input
+- Live preview with WebContainer-based execution
+- Option to export and deploy websites
+- Built with **Next.js**, **LangChain**, **OpenAI API**, and **WebContainer**
+
+- 
+### 🔹 [ChatGPT Clone with Custom Data](https://abmarineai.vercel.app/)
 A custom ChatGPT clone trained on 30K+ pages of domain-specific data with JWT authentication, fine-tuned performance, and clean UI built with **Next.js**.
 
-### 🔹 [3D AI Assistant](https://github.com/abhaybansaldev/3d-ai-assistant)
+### 🔹 [3D AI Assistant](https://ab-va.vercel.app/)
 A futuristic personal AI assistant using **Three.js + React Fiber**, fully interactive with voice commands and customized avatar.
 
-### 🔹 [Code Reviewer AI](https://github.com/abhaybansaldev/code-review-ai)
-AI that reviews and scores code using LLM APIs. Great for internal evaluation, clean code checks, and scoring logic.
-
-### 🔹 [Freelancer Site Builder](https://github.com/abhaybansaldev/freelancer-builder)
-A web builder app for freelancers to design customizable templates with live preview and deployment capabilities.
-
-### 🔹 [Crop Recommendation System](https://github.com/abhaybansaldev/crop-recommender)
-ML model to recommend best crops based on soil and environmental conditions. Optimized for fertilizer usage.
 
 > ⚙️ Check out the `projects/` folder in this repo for more mini-projects and experiments.
 
@@ -50,6 +54,12 @@ ML model to recommend best crops based on soil and environmental conditions. Opt
 
 ## 🧑‍💼 Experience
 
+### 🏢 Celebal Technologies (May 2025 – Present)  
+**Data & AI Intern**  
+- Working on real-world AI and data engineering solutions in enterprise environments  
+- Building intelligent pipelines and contributing to NLP model integrations  
+- Gaining hands-on experience in Azure cloud services, ML pipelines, and GenAI apps
+
 ### 🏢 Dripvive (Nov 2024 – Apr 2025)  
 **Full Stack AI Engineer Intern**  
 - Built scalable full-stack apps for AI models and internal tools  
@@ -65,6 +75,9 @@ ML model to recommend best crops based on soil and environmental conditions. Opt
 
 ## 🏆 Achievements
 
+
+- 🥇 **Regional Round Winner** – SAP Hackathon 2025  
+- 🥉 **Second Runner-Up** – Hack With Tricity 2025
 - ⭐ **5-Star** Coder on HackerRank  
 - 🧠 Solved **500+ problems** on CodeChef  
 - 🥇 Top 1% on Coding Ninjas  
@@ -80,7 +93,6 @@ Currently in **3rd Year**
 
 ---
 
----
 
 ## 📫 Want to Collaborate?
 
