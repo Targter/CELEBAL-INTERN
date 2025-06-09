@@ -104,6 +104,22 @@ export const AppProvider = ({ children }) => {
     },
   ]);
 
+  //   add tsk
+  // edit task
+  // delete task
+  const addTask = (newTask) => {
+    setTasks((prev) => [...prev, newTask]);
+  };
+
+  const editTask = (taskId, updates) => {
+    setTasks((prev) =>
+      prev.map((task) => (task.id === taskId ? { ...task, ...updates } : task))
+    );
+  };
+
+  const deleteTask = (taskId) => {
+    setTasks((prev) => prev.filter((task) => task.id !== taskId));
+  };
   const [selectedTask, setSelectedTask] = useState(null);
   const [date, setDate] = useState([]);
   const [lastSelectedDate, setLastSelectedDate] = useState(null);
@@ -167,6 +183,9 @@ export const AppProvider = ({ children }) => {
         lastSelectedDate,
         toggleDate,
         filteredChartData,
+        addTask,
+        editTask,
+        deleteTask,
       }}
     >
       {children}

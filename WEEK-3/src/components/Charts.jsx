@@ -191,110 +191,219 @@
 // export default Charts;
 
 // or
-import React from "react";
+// import React from "react";
+// import {
+//   BarChart,
+//   Bar,
+//   XAxis,
+//   YAxis,
+//   CartesianGrid,
+//   Tooltip,
+//   Legend,
+//   LineChart,
+//   Line,
+//   PieChart,
+//   Pie,
+//   Cell,
+// } from "recharts";
+// import { useTheme } from "../context/ThemeContext";
+// import { useAppContext } from "../context/AppContext";
+
+// const chartData = [
+//   { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
+//   { name: "Feb", uv: 3000, pv: 1398, amt: 2210 },
+//   { name: "Mar", uv: 2000, pv: 9800, amt: 2290 },
+//   { name: "Apr", uv: 2780, pv: 3908, amt: 2000 },
+//   { name: "May", uv: 1890, pv: 4800, amt: 2181 },
+//   { name: "Jun", uv: 2390, pv: 3800, amt: 2500 },
+//   { name: "Jul", uv: 3490, pv: 4300, amt: 2100 },
+// ];
+
+// const pieData = [
+//   { name: "Group A", value: 400 },
+//   { name: "Group B", value: 300 },
+//   { name: "Group C", value: 300 },
+//   { name: "Group D", value: 200 },
+// ];
+
+// const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
+// const Charts = () => {
+//   const { customColor } = useTheme();
+
+//   const { filteredChartData, selectedDate } = useAppContext();
+
+//   const dataToShow = filteredChartData.length ? filteredChartData : chartData;
+
+//   return (
+//     <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+//       {/* Bar Chart */}
+//       <div className="bg-white p-6 rounded shadow">
+//         <h2 className="text-lg font-semibold mb-4">Monthly UV Bar Chart</h2>
+//         <BarChart width={300} height={250} data={dataToShow}>
+//           <CartesianGrid strokeDasharray="3 3" />
+//           <XAxis dataKey="name" />
+//           <YAxis />
+//           <Tooltip />
+//           <Legend />
+//           <Bar dataKey="uv" fill={customColor || "#8884d8"} />
+//         </BarChart>
+//       </div>
+
+//       {/* Line Chart */}
+//       <div className="bg-white p-6 rounded shadow">
+//         <h2 className="text-lg font-semibold mb-4">Monthly PV Line Chart</h2>
+//         <LineChart width={300} height={250} data={dataToShow}>
+//           <CartesianGrid strokeDasharray="3 3" />
+//           <XAxis dataKey="name" />
+//           <YAxis />
+//           <Tooltip />
+//           <Legend />
+//           <Line
+//             type="monotone"
+//             dataKey="pv"
+//             stroke={customColor || "#82ca9d"}
+//           />
+//         </LineChart>
+//       </div>
+
+//       {/* Pie Chart */}
+//       <div className="bg-white p-6 rounded shadow">
+//         <h2 className="text-lg font-semibold mb-4">
+//           Group Distribution Pie Chart
+//         </h2>
+//         <PieChart width={300} height={250}>
+//           <Pie
+//             data={pieData}
+//             cx="50%"
+//             cy="50%"
+//             outerRadius={80}
+//             fill={customColor || "#8884d8"}
+//             dataKey="value"
+//             label
+//           >
+//             {pieData.map((entry, index) => (
+//               <Cell
+//                 key={`cell-${index}`}
+//                 fill={COLORS[index % COLORS.length]}
+//               />
+//             ))}
+//           </Pie>
+//           <Tooltip />
+//           <Legend />
+//         </PieChart>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Charts;
+
+//
+
+import React, { useMemo } from "react";
+import { Bar } from "react-chartjs-2";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
-  LineChart,
-  Line,
-  PieChart,
-  Pie,
-  Cell,
-} from "recharts";
-import { useTheme } from "../context/ThemeContext";
+} from "chart.js";
 import { useAppContext } from "../context/AppContext";
+import { useTheme } from "../context/ThemeContext";
 
-const chartData = [
-  { name: "Jan", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Feb", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Mar", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Apr", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "May", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Jun", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Jul", uv: 3490, pv: 4300, amt: 2100 },
-];
-
-const pieData = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Charts = () => {
+  const { filteredChartData, selectedTask, tasks } = useAppContext();
   const { customColor } = useTheme();
 
-  const { filteredChartData, selectedDate } = useAppContext();
+  const data = useMemo(() => {
+    if (selectedTask) {
+      return {
+        labels: ["Selected Task"],
+        datasets: [
+          {
+            label: `Task: ${selectedTask.name}`,
+            data: [1],
+            backgroundColor: customColor || "var(--theme-color)",
+            borderColor: "#ffffff",
+            borderWidth: 1,
+          },
+        ],
+      };
+    }
 
-  const dataToShow = filteredChartData.length ? filteredChartData : chartData;
+    const statusCounts = tasks.reduce(
+      (acc, task) => {
+        acc[task.status] = (acc[task.status] || 0) + 1;
+        return acc;
+      },
+      { "To Do": 0, "In Progress": 0, Done: 0 }
+    );
+
+    return {
+      labels: ["To Do", "In Progress", "Done"],
+      datasets: [
+        {
+          label: "Task Status",
+          data: [
+            statusCounts["To Do"],
+            statusCounts["In Progress"],
+            statusCounts["Done"],
+          ],
+          backgroundColor: [customColor || "#3b82f6", "#10b981", "#ef4444"],
+          borderColor: ["#ffffff"],
+          borderWidth: 1,
+        },
+      ],
+    };
+  }, [selectedTask, tasks, customColor]);
+
+  const monthData = useMemo(() => {
+    return {
+      labels: filteredChartData.map((d) => d.name),
+      datasets: [
+        {
+          label: "Monthly Data",
+          data: filteredChartData.map((d) => d.uv),
+          backgroundColor: customColor || "var(--theme-color)",
+          borderColor: "#ffffff",
+          borderWidth: 1,
+        },
+      ],
+    };
+  }, [filteredChartData, customColor]);
 
   return (
-    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-      {/* Bar Chart */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold mb-4">Monthly UV Bar Chart</h2>
-        <BarChart width={300} height={250} data={dataToShow}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="uv" fill={customColor || "#8884d8"} />
-        </BarChart>
-      </div>
-
-      {/* Line Chart */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold mb-4">Monthly PV Line Chart</h2>
-        <LineChart width={300} height={250} data={dataToShow}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="pv"
-            stroke={customColor || "#82ca9d"}
-          />
-        </LineChart>
-      </div>
-
-      {/* Pie Chart */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-lg font-semibold mb-4">
-          Group Distribution Pie Chart
-        </h2>
-        <PieChart width={300} height={250}>
-          <Pie
-            data={pieData}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill={customColor || "#8884d8"}
-            dataKey="value"
-            label
-          >
-            {pieData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
-      </div>
+    <div className="w-full">
+      <Bar
+        data={selectedTask ? data : monthData}
+        options={{
+          responsive: true,
+          plugins: {
+            legend: { position: "top" },
+            title: {
+              display: true,
+              text: selectedTask
+                ? `Task: ${selectedTask.name}`
+                : "Task Status or Monthly Data",
+            },
+          },
+        }}
+      />
     </div>
   );
 };
 
-export default Charts;
+export default React.memo(Charts);

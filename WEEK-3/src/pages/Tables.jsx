@@ -362,11 +362,101 @@
 // export default Tables;
 
 //
-import React, { useState, useMemo } from "react";
+
+import React, { useState, useMemo, useEffect } from "react";
 import { useAppContext } from "../context/AppContext";
 
+//
+const EditTaskModal = ({ selectedTask, onClose }) => {
+  const { editTask } = useAppContext();
+  const [formData, setFormData] = useState(selectedTask);
+
+  useEffect(() => {
+    setFormData(selectedTask);
+  }, [selectedTask]);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editTask(selectedTask.id, formData);
+    onClose(); // close modal
+  };
+
+  if (!selectedTask) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-lg shadow-md w-[400px] space-y-4"
+      >
+        <h2 className="text-lg font-bold mb-4">Edit Task</h2>
+
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Task Name"
+          className="w-full p-2 border rounded"
+        />
+
+        <select
+          name="status"
+          value={formData.status}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+        >
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+
+        <input
+          type="date"
+          name="dueDate"
+          value={formData.dueDate}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+        />
+
+        <select
+          name="priority"
+          value={formData.priority}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+        >
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+
+        <div className="flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={onClose}
+            className="bg-gray-400 text-white px-4 py-2 rounded"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-4 py-2 rounded"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+//
 const Tables = ({ onSelectTask }) => {
-  const { tasks, date } = useAppContext();
+  const { tasks, date, setTasks, deleteTask } = useAppContext();
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [filters, setFilters] = useState({
     name: "",
@@ -375,6 +465,11 @@ const Tables = ({ onSelectTask }) => {
     priority: "",
   });
 
+  //
+  const [selectedTask, setSelectedTask] = useState(null);
+  const closeModal = () => {
+    setSelectedTask(null);
+  };
   // Filter tasks based on date range and filter inputs
   const filteredTasks = useMemo(() => {
     let result = [...tasks];
@@ -441,51 +536,55 @@ const Tables = ({ onSelectTask }) => {
   ];
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-left text-gray-800 dark:text-gray-200">
-        <thead className="bg-gray-50 dark:bg-gray-700">
-          <tr>
-            {columns.map((column) => (
-              <th
-                key={column.key}
-                className="p-4 border-b border-gray-200 dark:border-gray-600 cursor-pointer"
-                onClick={() => requestSort(column.key)}
-              >
-                <div className="flex items-center justify-between">
-                  {column.label}
-                  {sortConfig.key === column.key && (
-                    <span>{sortConfig.direction === "asc" ? "↑" : "↓"}</span>
+    <>
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-gray-800 dark:text-gray-200">
+          <thead className="bg-gray-50 dark:bg-gray-700">
+            <tr>
+              {columns.map((column) => (
+                <th
+                  key={column.key}
+                  className="p-4 border-b border-gray-200 dark:border-gray-600 cursor-pointer"
+                  onClick={() => requestSort(column.key)}
+                >
+                  <div className="flex items-center justify-between">
+                    {column.label}
+                    {sortConfig.key === column.key && (
+                      <span>{sortConfig.direction === "asc" ? "↑" : "↓"}</span>
+                    )}
+                  </div>
+                  {column.key === "status" ? (
+                    <select
+                      value={filters.status}
+                      onChange={(e) =>
+                        handleFilterChange("status", e.target.value)
+                      }
+                      className="mt-2 p-2 border border-gray-300 dark:border-gray-600 rounded w-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800"
+                    >
+                      <option value="">All</option>
+                      <option value="To Do">To Do</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Done">Done</option>
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      value={filters[column.key]}
+                      onChange={(e) =>
+                        handleFilterChange(column.key, e.target.value)
+                      }
+                      placeholder={`Filter ${column.label}`}
+                      className="mt-2 p-2 border border-gray-300 dark:border-gray-600 rounded w-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800"
+                    />
                   )}
-                </div>
-                {column.key === "status" ? (
-                  <select
-                    value={filters.status}
-                    onChange={(e) =>
-                      handleFilterChange("status", e.target.value)
-                    }
-                    className="mt-2 p-2 border border-gray-300 dark:border-gray-600 rounded w-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800"
-                  >
-                    <option value="">All</option>
-                    <option value="To Do">To Do</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Done">Done</option>
-                  </select>
-                ) : (
-                  <input
-                    type="text"
-                    value={filters[column.key]}
-                    onChange={(e) =>
-                      handleFilterChange(column.key, e.target.value)
-                    }
-                    placeholder={`Filter ${column.label}`}
-                    className="mt-2 p-2 border border-gray-300 dark:border-gray-600 rounded w-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800"
-                  />
-                )}
+                </th>
+              ))}
+              <th className="p-4 border-b border-gray-200 dark:border-gray-600">
+                Actions
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
+            </tr>
+          </thead>
+          {/* <tbody>
           {sortedTasks.length > 0 ? (
             sortedTasks.map((task, index) => (
               <tr
@@ -537,9 +636,84 @@ const Tables = ({ onSelectTask }) => {
               </td>
             </tr>
           )}
-        </tbody>
-      </table>
-    </div>
+        </tbody> */}
+          <tbody>
+            {sortedTasks.length > 0 ? (
+              sortedTasks.map((task, index) => (
+                <tr
+                  key={`${task.id}-${index}`}
+                  className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  <td
+                    className="p-4 border-b border-gray-200 dark:border-gray-600"
+                    onClick={() => onSelectTask(task)} // Click to edit
+                  >
+                    {task.name}
+                  </td>
+                  <td className="p-4 border-b border-gray-200 dark:border-gray-600">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs ${
+                        task.status === "To Do"
+                          ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                          : task.status === "In Progress"
+                          ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                          : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                      }`}
+                    >
+                      {task.status}
+                    </span>
+                  </td>
+                  <td className="p-4 border-b border-gray-200 dark:border-gray-600">
+                    {new Date(task.dueDate).toLocaleDateString()}
+                  </td>
+                  <td className="p-4 border-b border-gray-200 dark:border-gray-600">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs ${
+                        task.priority === "High"
+                          ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                          : task.priority === "Medium"
+                          ? "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+                          : "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+                      }`}
+                    >
+                      {task.priority}
+                    </span>
+                  </td>
+                  <td className="p-4 border-b border-gray-200 dark:border-gray-600 space-x-2 text-right">
+                    <button
+                      // onClick={() => onSelectTask(task)}
+                      onClick={() => setSelectedTask(task)}
+                      className="text-blue-600 hover:underline dark:text-blue-400"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => deleteTask(task.id)}
+                      className="text-red-600 hover:underline dark:text-red-400"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={columns.length + 1}
+                  className="p-4 text-center text-gray-500 dark:text-gray-400"
+                >
+                  No tasks found matching your criteria
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {selectedTask && (
+        <EditTaskModal selectedTask={selectedTask} onClose={closeModal} />
+      )}
+    </>
   );
 };
 

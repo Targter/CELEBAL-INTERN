@@ -25,3 +25,32 @@
 .border-theme {
   border-color: var(--theme-color);
 }
+
+/* 
+ */
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* .bg-white {
+  background-color: var(--card-bg);
+} */
+.shadow-lg {
+  box-shadow: 0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -1px var(--shadow-color);
+}
+
+.react-calendar__navigation__label,
+.react-calendar__navigation__arrow {
+  @apply text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 rounded;
+}
+
+/* .react-calendar__tile--active {
+  @apply bg-theme text-white;
+} */
+
+.react-toastify__toast {
+  @apply rounded-lg shadow-lg;
+}
