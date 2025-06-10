@@ -1,49 +1,12 @@
-# React Admin Dashboard
+# React + Vite
 
-![Dashboard Preview](public/screenshot.png) <!-- Add a screenshot if available -->
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-A modern, responsive admin dashboard built with React.js featuring customizable themes, interactive charts, data tables, calendar, and Kanban board.
+Currently, two official plugins are available:
 
-## Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-✨ **Theme Customization**
-- Light/dark mode toggle
-- Custom color schemes using CSS variables
-- Theme persistence with Context API
+## Expanding the ESLint configuration
 
-📊 **Data Visualization**
-- Interactive charts (Line, Bar, Pie, Area)
-- Realtime data updates
-- Responsive chart components
-
-📅 **Calendar & Scheduling**
-- Full-month view with events
-- Create/edit/delete events
-- Drag-and-drop scheduling
-
-📋 **Advanced Tables**
-- Sortable, filterable, paginated tables
-- Column resizing and reordering
-- Export to CSV/PDF
-
-📌 **Kanban Board**
-- Drag-and-drop task management
-- Customizable columns
-- Task details modal
-
-## Technologies Used
-
-- **React** (v18+) with Hooks
-- **Tailwind CSS** for styling
-- **Context API** for state management
-- **React Icons** for vector icons
-- **Chart.js/Recharts** for data visualization
-- **React Table** for data tables
-- **React Big Calendar** for scheduling
-- **React Beautiful DND** for Kanban
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Targter/CELEBAL-INTERN.git
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
