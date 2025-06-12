@@ -1,4 +1,4 @@
-# 💼 Abhay Bansal — Internship Portfolio
+# 💼 Abhay Bansal -- Internship Portfolio
 
 Welcome to my **Internship GitHub Repository**, where you’ll find a comprehensive collection of my **projects**, **skills**, and **professional experiences** that reflect my journey and growth as a Full Stack AI Developer. This repository is crafted to serve as a portfolio for internship applications and networking.
 
