@@ -4,7 +4,7 @@ Welcome to my **Internship GitHub Repository**, where you’ll find a comprehens
 
 ---
 
-## 🔗 Connect with Me
+## 🔗 Connect with Me.
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/bansalabhay/)  
 - 💻 [GitHub](https://github.com/Targter)  
